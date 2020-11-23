@@ -1,0 +1,1285 @@
+// Start Style The Features Section
+.features {
+  padding-bottom: 50px;
+
+  .features-boxs {
+    @include display(f);
+    @include justify(sb);
+    @include wrap(w);
+
+    .features-box {
+      @include basis(90%);
+      margin: 0 auto 50px;
+
+      .features-box-image {
+        background-color: $white;
+        height: 150px;
+
+        img {
+          width: 50%;
+          margin: 0px 25%;
+        }
+      }
+
+      .features-box-text {
+        text-align: center;
+
+        h3 {
+          margin: 30px 0;
+          color: $black;
+
+          font: {
+            size: 18px;
+            weight: 500;
+          }
+        }
+
+        p {
+          color: $dark-gray;
+          line-height: 24px;
+        }
+      }
+
+      @include tablet(30%) {
+        margin: 0;
+
+        &:not(:nth-child(3)) {
+          @include position(r);
+
+          .features-box-image {
+            &:after {
+              content: '';
+              @include display(b);
+
+              @include position(a) {
+                @include positionDir(-1, 10%, null, null, 90%)
+              }
+
+              width: 80%;
+              border-bottom: 2.8px dashed rgba(35, 35, 35, 0.1);
+            }
+          }
+        }
+      }
+
+      @include desktop {
+        &:not(:nth-child(3)) {
+          .features-box-image {
+            &:after {
+              top: 16%;
+            }
+          }
+        }
+      }
+
+      @include lgDesktop {
+        &:not(:nth-child(3)) {
+          .features-box-image {
+            &:after {
+              top: 18%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Finish Style The Features Section
+
+// Start Style The Design Section
+.design {
+  padding: 50px 0;
+
+  .design-boxs {
+    @include display(f);
+    @include wrap(w);
+    @include justify(sb);
+    @include alignItems(c);
+
+    .design-box {
+      @include basis(90%);
+      margin: auto;
+
+      img {
+        margin-bottom: 50px;
+
+        @include tablet {
+          margin: 0;
+        }
+      }
+
+      .design-box-text {
+        text-align: center;
+
+        h2 {
+          margin: 30px 0;
+          color: $black;
+          font-size: 26px;
+          text-align: left;
+
+          @include tablet {
+            font-size: 38px;
+            margin: 0 0 30px 0;
+          }
+        }
+
+        p {
+          color: $dark-gray;
+          line-height: 27px;
+          font-size: 16px;
+          text-align: left;
+          margin-bottom: 50px;
+
+          @include tablet {
+            font-size: 17px;
+          }
+        }
+
+        @include tablet {
+          text-align: left;
+        }
+      }
+
+      @include tablet(48%) {
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Finish Style The Design Section
+
+// Start Style The Service Section
+.service {
+  padding: 50px 0;
+
+  .service-boxs {
+    @include display(f);
+    @include wrap(w);
+    @include justify(sb);
+
+    .service-box {
+      @include basis(95%);
+      margin: 0 auto 50px;
+      padding: 40px;
+      border: 1px solid rgba(81, 78, 188, 0.08);
+      border-radius: 30px;
+      box-shadow: 0 10px 50px rgba(81, 78, 188, 0.1);
+      cursor: pointer;
+      @include transition;
+
+      &:hover {
+        box-shadow: 0 20px 60px rgba(81, 78, 188, 0.2);
+      }
+
+      .service-box-image {
+        img {
+          width: 50px;
+          height: 50px;
+          margin: 0 calc(50% - 25px);
+        }
+      }
+
+      .service-box-text {
+        text-align: center;
+
+        h3 {
+          margin: 30px 0;
+          color: $black;
+          font-size: 20px;
+          font-weight: 500;
+        }
+
+        p {
+          color: $dark-gray;
+          line-height: 25px;
+          font-size: 15px;
+        }
+      }
+
+      @include phone(75%);
+
+      @include tablet(45%) {
+        margin: 0 0 50px;
+      }
+
+      @include desktop(30%);
+    }
+  }
+}
+
+// Finish Style The Service Section
+
+// Start Style The Works Section
+.works {
+  .works-text {
+    text-align: center;
+
+    span {
+      @include display(b);
+      color: $dark-gray;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      cursor: pointer;
+
+      &:hover {
+        color: $purple;
+      }
+
+      @include tablet {
+        @include display(ib);
+        margin-right: 30px;
+      }
+    }
+  }
+
+  .works-boxs {
+    @include display(f);
+    @include wrap(w);
+    @include justify(c);
+    margin-top: 30px;
+
+    .works-box {
+      @include basis(95%);
+      @include position(r);
+      margin-bottom: 30px;
+
+      &:hover {
+        .works-box-text {
+          opacity: 1;
+        }
+
+        img {
+          transform: scale(1.5);
+        }
+      }
+
+      .works-box-image {
+        cursor: pointer;
+        overflow: hidden;
+        height: 100%;
+
+        img {
+          @include transition;
+          height: 100%;
+        }
+      }
+
+      .works-box-text {
+        opacity: 0;
+        @include transition;
+
+        @include position(a) {
+          @include positionDir(1, 0, 0, 0, 0)
+        }
+
+        cursor: pointer;
+        background: linear-gradient(135deg, rgba(227, 80, 184, 0.7) 0%, rgba(81, 78, 188, 0.7) 100%);
+
+        span {
+          background-color: $white;
+
+          @include position(a) {
+            @include positionDir(1, 50%, null, null, 50%);
+          }
+
+          transform: translate(-50%, -50%);
+
+          &.height {
+            height: 35px;
+            width: 2px;
+          }
+
+          &.width {
+            height: 2px;
+            width: 35px;
+          }
+        }
+      }
+
+      @include phone(75%);
+      @include tablet(48%);
+      @include desktop(31%);
+
+      @include lgDesktop(30%) {
+        margin: 0 15px 30px;
+      }
+    }
+
+    @include tablet {
+      @include justify(sb);
+    }
+
+    @include lgDesktop {
+      @include justify(fs);
+    }
+  }
+}
+
+// Finish Style The Works Section
+
+// Start Style The Team Section
+.team {
+  padding: 50px 0;
+
+  .team-boxs {
+    @include display(f);
+    @include wrap(w);
+    @include justify(c);
+
+    .team-box {
+      @include basis(90%);
+      @include position(r);
+      box-shadow: -1px 1px 20px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      border-radius: 35% 65% 60% 40% / 30% 40% 60% 70%;
+      margin-bottom: 40px;
+
+      &:hover {
+        .team-box-text {
+          opacity: 1;
+        }
+
+        .team-box-icons {
+          opacity: 1;
+        }
+
+        img {
+          transform: scale(1.1);
+        }
+      }
+
+      .team-box-image {
+        overflow: hidden;
+        border-radius: 35% 65% 60% 40% / 30% 40% 60% 70%;
+
+        img {
+          @include transition;
+          border-radius: 35% 65% 60% 40% / 30% 40% 60% 70%;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+      }
+
+      .team-box-text {
+        opacity: 0;
+        border-radius: 35% 65% 60% 40% / 30% 40% 60% 70%;
+        @include transition;
+
+        @include position(a) {
+          @include positionDir(1, 0, 0, 0, 0)
+        }
+
+        cursor: pointer;
+        background: linear-gradient(135deg, rgba(227, 80, 184, 0.7) 0%, rgba(81, 78, 188, 0.7) 100%);
+
+        h3 {
+          color: $white;
+
+          font: {
+            size: 18px;
+            weight: 500
+          }
+
+          text-align: center;
+          width: 100%;
+
+          @include position(a) {
+            @include positionDir(1, 40%)
+          }
+        }
+
+        p {
+          color: $gray;
+          font-size: 13px;
+          text-align: center;
+          width: 100%;
+
+          @include position(a) {
+            @include positionDir(1, 50%)
+          }
+        }
+      }
+
+      .team-box-icons {
+        opacity: 0;
+        @include display(f);
+        @include transition;
+
+        @include position(a) {
+          @include positionDir(1, 80%, 0, 0, 25%)
+        }
+
+        .team-box-icon {
+          width: 30px;
+          height: 30px;
+          margin: 0 3px;
+          border: 1px solid $white;
+          border-radius: 3px;
+          @include transition;
+          background-color: transparent;
+          text-align: center;
+          cursor: pointer;
+
+          &:last-of-type {
+            margin-top: -10px;
+          }
+
+          &:hover {
+            background-color: $white;
+
+            svg {
+              color: $blue;
+            }
+          }
+
+          svg {
+            color: $white;
+            font-size: 16px;
+            vertical-align: bottom;
+            @include transition;
+
+            @include tablet {
+              margin-top: 10px;
+            }
+          }
+
+          @include tablet {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        @include tablet {
+          top: 70%;
+          left: 10%;
+        }
+
+        @include desktop {
+          left: 18%;
+        }
+
+        @include lgDesktop {
+          top: 65%;
+          left: 25%;
+        }
+      }
+
+      @include phone(60%);
+
+      @include tablet(30%) {
+        margin-bottom: 0;
+      }
+
+      @include desktop(32%);
+    }
+
+    @include tablet {
+      @include justify(sb);
+    }
+  }
+}
+
+// Finish Style The Team Section
+
+// Start Style The Client Section
+.client {
+  padding: 50px 0;
+
+  .client-boxs {
+    @include display(f);
+    @include justify(c);
+    overflow: hidden;
+    @include position(r);
+
+    .swiper-container {
+      overflow: visible;
+      @include position(s);
+      width: 90%;
+
+      .swiper-wrapper {
+        .swiper-slide {
+          .swiper-box {
+            .swiper-box-image {
+              width: 220px;
+              height: 220px;
+              margin: auto;
+              border-radius: 50% 50% 50% 50% / 35% 35% 65% 65%;
+              box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.1);
+              overflow: hidden;
+
+              img {
+                @include display(b);
+                width: 100%;
+                height: 100%;
+              }
+            }
+
+            .swiper-box-text {
+              text-align: center;
+              margin-bottom: 80px;
+              padding: 0 20px;
+
+              h3 {
+                font-size: 18px;
+                margin: 30px 0 5px;
+                color: $black;
+              }
+
+              p {
+                color: $dark-gray;
+                font-size: 13px;
+                padding-bottom: 10px;
+
+                &.desc {
+                  font-size: 19px;
+                  line-height: 30px;
+                  padding-bottom: 0;
+
+                  @include tablet {
+                    font-size: 22px;
+                    line-height: 35px;
+                  }
+                }
+              }
+
+              span {
+                height: 2.5px;
+                width: 65px;
+                background-color: rgba(137, 137, 137, 0.4);
+                @include display(b);
+                margin: 0 auto 30px;
+              }
+
+              @include tablet {
+                margin-bottom: 150px;
+              }
+
+              @include desktop {
+                margin-bottom: 70px;
+              }
+            }
+          }
+        }
+      }
+
+      .swiper-pagination {
+        @include display(f);
+        @include alignItems(c);
+        @include justify(c);
+
+        span {
+
+          border-radius: 50%;
+
+          &.swiper-pagination-bullet-active {
+            animation: pulse 1s ease-out infinite;
+
+            @keyframes pulse {
+              0% {
+                box-shadow: 0 0 0 0 rgba(81, 78, 188, 0.5);
+              }
+
+              100% {
+                box-shadow: 0 0 0 10px transparent;
+              }
+            }
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            @include display(n);
+
+            @include tablet {
+              @include display(b);
+            }
+
+            @include desktop {
+              border: 3px solid $white;
+            }
+          }
+
+          @include tablet {
+            width: 40px;
+            height: 40px;
+          }
+
+          @include desktop {
+            width: 100px;
+            height: 100px;
+            background: none;
+            opacity: 1;
+
+            &.swiper-pagination-bullet-active {
+              img {
+                box-shadow: none;
+              }
+            }
+
+            img {
+              box-shadow: -2px 2px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            &:hover {
+              img {
+                box-shadow: -2px 2px 30px 2px rgba(0, 0, 0, 0.2);
+              }
+            }
+
+            &:nth-child(1) {
+              @include position(a) {
+                @include positionDir(1, -370%, null, null, 2%);
+              }
+            }
+
+            &:nth-child(2) {
+              @include position(a) {
+                @include positionDir(1, -370%, 2%);
+              }
+            }
+
+            &:nth-child(3) {
+              @include position(a) {
+                @include positionDir(1, -300%, null, null, 13%);
+              }
+            }
+
+            &:nth-child(4) {
+              @include position(a) {
+                @include positionDir(1, -300%, 13%);
+              }
+            }
+
+            &:nth-child(5) {
+              @include position(a) {
+                @include positionDir(1, -250%, null, null, 0);
+              }
+            }
+
+            &:nth-child(6) {
+              @include position(a) {
+                @include positionDir(1, -250%, 0);
+              }
+            }
+
+            &:nth-child(7) {
+              @include position(a) {
+                @include positionDir(1, -180%, null, null, 11%);
+              }
+            }
+
+            &:nth-child(8) {
+              @include position(a) {
+                @include positionDir(1, -180%, 11%);
+              }
+            }
+          }
+        }
+
+        @include desktop {
+          top: 80%;
+        }
+      }
+
+      .swiper-button-next {
+        width: 25px;
+        height: 2px;
+        opacity: 0.5;
+        background-color: $blue;
+        @include positionDir(2, auto, 35%, 9%);
+        @include transition;
+
+        &::before {
+          content: '';
+          width: 7px;
+          height: 2px;
+          opacity: 0.5;
+          background-color: $blue;
+
+          @include position(a) {
+            @include positionDir(1, -3px, 0);
+          }
+
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          content: '';
+          width: 7px;
+          height: 2px;
+          opacity: 0.5;
+          background-color: $blue;
+
+          @include position(a) {
+            @include positionDir(1, 3px, 0);
+          }
+
+          transform: rotate(-45deg);
+        }
+
+        &.active-next {
+          width: 40px;
+          height: 3px;
+          opacity: 1;
+
+          &::before {
+            width: 10px;
+            height: 3px;
+            opacity: 1;
+            @include positionDir(1, -4px, 0);
+          }
+
+          &::after {
+            width: 10px;
+            height: 3px;
+            opacity: 1;
+            @include positionDir(1, 4px, 0);
+          }
+        }
+
+        @include phone {
+          right: 40%;
+        }
+
+        @include tablet {
+          right: 43%;
+          bottom: 15%;
+        }
+
+        @include desktop {
+          right: 45%;
+          bottom: 6%;
+        }
+
+        @include lgDesktop {
+          right: 46%;
+        }
+      }
+
+      .swiper-button-prev {
+        width: 25px;
+        height: 2px;
+        opacity: 0.5;
+        background-color: $blue;
+        @include positionDir(2, auto, null, 9%, 35%);
+        @include transition;
+
+        &::before {
+          content: '';
+          width: 7px;
+          height: 2px;
+          opacity: 0.5;
+          background-color: $blue;
+
+          @include position(a) {
+            @include positionDir(1, -3px, null, null, 0);
+          }
+
+          transform: rotate(-45deg);
+        }
+
+        &::after {
+          content: '';
+          width: 7px;
+          height: 2px;
+          opacity: 0.5;
+          background-color: $blue;
+
+          @include position(a) {
+            @include positionDir(1, 3px, null, null, 0);
+          }
+
+          transform: rotate(45deg);
+        }
+
+        &.active-prev {
+          width: 40px;
+          height: 3px;
+          opacity: 1;
+
+          &::before {
+            width: 10px;
+            height: 3px;
+            opacity: 1;
+            @include positionDir(1, -4px, 0);
+          }
+
+          &::after {
+            width: 10px;
+            height: 3px;
+            opacity: 1;
+            @include positionDir(1, 4px, 0);
+          }
+        }
+
+        @include phone {
+          left: 40%;
+        }
+
+        @include tablet {
+          left: 43%;
+          bottom: 15%;
+        }
+
+        @include desktop {
+          left: 45%;
+          bottom: 6%;
+        }
+
+        @include lgDesktop {
+          left: 46%;
+        }
+      }
+
+      @include desktop {
+        width: 50%;
+      }
+
+      @include lgDesktop {
+        width: 55%;
+      }
+    }
+  }
+}
+
+// Finish Style The Client Section
+
+// Start Style The Client Section
+.skills {
+  padding-bottom: 50px;
+
+  .skills-box {
+    .swiper-container2 {
+      overflow: hidden;
+
+      .swiper-wrapper {
+        .swiper-slide {
+          @include display(f);
+          @include alignItems(c);
+          @include justify(c);
+
+          img {
+            opacity: 0.5;
+            cursor: pointer;
+            width: auto;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Finish Style The Client Section
+
+// Start Style The Pricing Section
+.pricing {
+  padding: 50px 0;
+
+  .pricing-text {
+    text-align: center;
+    width: 200px;
+    margin: 0 auto 30px;
+    border: 1px solid rgba(35, 35, 35, 0.08);
+    border-radius: 30px;
+    @include display(f);
+    overflow: hidden;
+
+    span {
+      @include display(b);
+      font-weight: 700;
+      color: $black;
+      padding: 14px 0;
+      width: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &.active {
+        background-color: $purple;
+        color: $white
+      }
+    }
+  }
+
+  .pricing-boxs {
+    @include display(f);
+    @include wrap(w);
+    @include justify(c);
+
+    .pricing-box {
+      @include basis(95%);
+      margin-bottom: 30px;
+      padding: 40px;
+      text-align: center;
+      border-top: 3px solid $blue;
+      box-shadow: -1px 1px 20px rgba(0, 0, 0, 0.08);
+
+      .pricing-box-image {
+        margin-bottom: 30px;
+
+        img {
+          width: 64px;
+          height: 64px;
+        }
+      }
+
+      .pricing-box-text {
+        h3 {
+          margin-bottom: 30px;
+          font-size: 16px;
+          color: $black;
+        }
+
+        p {
+          color: $dark-gray;
+          font-size: 15px;
+          margin-bottom: 20px;
+
+          &.price {
+            font-size: 48px;
+            font-weight: 700;
+            color: $purple;
+
+            @include tablet {
+              font-size: 60px;
+            }
+          }
+
+          &.yearly {
+            @include display(n);
+          }
+
+          &.line {
+            text-decoration: line-through;
+          }
+
+        }
+
+        a {
+          margin-top: 20px;
+        }
+      }
+
+      @include phone(70%);
+      @include tablet(55%);
+
+      @include desktop(31%) {
+        border-top: 3px solid $white;
+        box-shadow: none;
+        @include transition;
+
+        &.standard {
+          margin-top: -20px;
+          margin-bottom: 10px;
+        }
+
+        &.active,
+        &:hover {
+          border-top: 3px solid $blue;
+          box-shadow: -1px 1px 20px rgba(0, 0, 0, 0.08);
+        }
+
+      }
+    }
+
+    @include desktop {
+      @include justify(sb);
+      margin-top: 60px;
+    }
+  }
+}
+
+// Finish Style The Pricing Section
+
+// Start Style The Blog Section
+.blog {
+  padding: 50px 0;
+
+  .blog-boxs {
+    @include display(f);
+    @include wrap(w);
+    @include justify(c);
+
+    .blog-box {
+      @include position(r);
+      @include basis(95%);
+      margin-bottom: 30px;
+      border-radius: 30px;
+      box-shadow: 0 10px 50px rgba(81, 78, 188, 0.1);
+      overflow: hidden;
+
+      .date {
+        background-color: $white;
+        color: $black;
+        font-size: 13px;
+        padding: 4px 5px;
+        border-radius: 3px;
+        cursor: pointer;
+
+        @include position(a) {
+          @include positionDir(1, 15px, 15px);
+        }
+      }
+
+      .blog-box-image {
+        cursor: pointer;
+        overflow: hidden;
+
+        img {
+          @include transition;
+          height: 100%;
+        }
+
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+
+      }
+
+      .blog-box-text {
+        padding: 20px;
+
+        .title {
+          font-size: 13px;
+          display: inline-block;
+          padding: 4px 5px;
+          margin-bottom: 20px;
+          background-color: $blue;
+          color: $white;
+          border-radius: 3px;
+          cursor: pointer;
+          @include transition;
+
+          &:hover {
+            background-color: $black;
+          }
+        }
+
+        h3 {
+          cursor: pointer;
+          margin-bottom: 20px;
+          font-size: 18px;
+          color: $black;
+          @include transition;
+
+          &:hover {
+            color: $blue;
+          }
+        }
+
+        p {
+          color: $dark-gray;
+          line-height: 24px;
+          padding-bottom: 20px;
+          border-bottom: 1px solid rgba(35, 35, 35, 0.08);
+        }
+
+      }
+
+      .blog-box-user {
+        padding: 0 20px 20px;
+        @include display(f);
+        @include alignItems(c);
+
+        .blog-box-user-image {
+          margin-right: 10px;
+
+          img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+          }
+        }
+
+        .blog-box-user-text {
+          p {
+            color: $dark-gray;
+
+            a {
+              margin-left: 3px;
+              color: $black;
+              @include transition;
+
+              &:hover {
+                color: $blue;
+              }
+            }
+          }
+        }
+      }
+
+      @include phone(70%);
+      @include tablet(55%);
+      @include desktop(31%);
+    }
+
+    @include desktop {
+      @include justify(sb);
+    }
+  }
+}
+
+// Finish Style The Blog Section
+
+// Start Style The Blog Section
+.contact {
+  background-image: url('../images/contact.png');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .contact-form {
+    form {
+      @include display(f);
+      @include wrap(w);
+      @include justify(c);
+
+      .name,
+      .email,
+      .phone,
+      .subject {
+        @include basis(90%);
+        @include position(r);
+        margin: 0 auto 20px;
+
+        input {
+          padding: 30px 0 10px;
+          border: none;
+          border-bottom: 1px solid rgba(35, 35, 35, 0.08);
+          width: 100%;
+          font-size: 16px;
+          background: transparent;
+        }
+
+        .text {
+          font-style: italic;
+
+          @include position(a) {
+            @include positionDir(1, null, null, 10px, 0);
+          }
+
+          color: $black;
+          @include transition;
+        }
+
+        .border {
+          width: 0;
+          height: 2.8px;
+          background-color: $blue;
+
+          @include position(a) {
+            @include positionDir(1, null, null, 0, 0);
+          }
+
+          @include transition;
+        }
+
+        &.focus {
+          .text {
+            bottom: 35px;
+            font-size: 12px;
+            color: $blue;
+          }
+
+          .border {
+            width: 100%;
+          }
+        }
+
+        @include tablet {
+          @include basis(48%);
+          margin: 0 0 20px;
+        }
+      }
+      .message {
+        @include basis(90%);
+        @include position(r);
+        margin: 0 auto 20px;
+        border-bottom: 1px solid rgba(35, 35, 35, 0.08);
+
+        textarea {
+          padding: 30px 0 10px;
+          border: none;
+          width: 100%;
+          height: 120px;
+          font-size: 16px;
+          resize: none;
+          background: transparent;
+        }
+
+        .text {
+          font-style: italic;
+
+          @include position(a) {
+            @include positionDir(1, 35px, null, null, 0);
+          }
+
+          color: $black;
+          @include transition;
+        }
+
+        .border {
+          width: 0;
+          height: 2.8px;
+          background-color: $blue;
+
+          @include position(a) {
+            @include positionDir(1, null, null, 0, 0);
+          }
+
+          @include transition;
+        }
+
+        &.focus {
+          .text {
+            top: 10px;
+            font-size: 12px;
+            color: $blue;
+          }
+
+          .border {
+            width: 100%;
+          }
+        }
+
+        @include tablet {
+          @include basis(100%);
+          margin: 0;
+        }
+
+      }
+
+      .button {
+        width: fit-content;
+        margin: 40px auto;
+
+        @include tablet {
+          margin: 40px 0 0 auto;
+        }
+      }
+
+      @include tablet {
+        @include justify(sb);
+      }
+
+      @include desktop {
+        width: 70%;
+        margin: auto;
+      }
+
+      @include lgDesktop {
+        width: 60%;
+      }
+    }
+  }
+}
+
+// Finish Style The Blog Section

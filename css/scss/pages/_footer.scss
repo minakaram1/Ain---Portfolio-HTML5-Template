@@ -1,0 +1,160 @@
+footer {
+  background-color: $light-gray;
+  margin-top: 100px;
+
+  .footer-head {
+    background-color: $white;
+
+    path {
+      &:first-of-type {
+        fill: $light-gray2;
+      }
+
+      &:last-of-type {
+        fill: $light-gray;
+      }
+    }
+  }
+
+  .footer-boxs {
+    @include display(f);
+    @include justify(c);
+    @include alignItems(c);
+    @include wrap(w);
+    margin-top: 50px;
+
+    .footer-box {
+      @include basis(90%);
+      margin: 0 auto 30px;
+
+      .footer-box-title {
+        h3 {
+          color: $black;
+          font-size: 18px;
+          margin-bottom: 20px;
+        }
+      }
+
+      .footer-box-text {
+        p {
+          color: $dark-gray;
+          line-height: 24px;
+        }
+      }
+
+      .footer-box-links {
+        a {
+          @include display(b);
+          width: fit-content;
+          color: $dark-gray;
+          margin-bottom: 10px;
+
+          &:hover {
+            color: $blue;
+          }
+        }
+      }
+
+      .footer-box-icons {
+        .footer-box-icon {
+          @include display(f);
+          @include alignItems(c);
+          color: $dark-gray;
+          margin-bottom: 10px;
+
+          .footer-icon {
+            margin-right: 10px;
+            font-size: 17px;
+          }
+        }
+      }
+
+      .footer-box-images {
+        @include display(f);
+        @include alignItems(c);
+        @include justify(sb);
+        @include wrap(w);
+        padding-bottom: 30px;
+
+        .footer-box-image {
+          @include basis(24%);
+          @include position(r);
+          cursor: pointer;
+
+          &:hover {
+            .overlay {
+              @include display(b);
+            }
+          }
+
+          .overlay {
+            @include position(a) {
+              @include positionDir(1, 0, null, null, 0)
+            }
+
+            width: 100%;
+            height: 92%;
+            background-color:rgba($blue, 0.6);
+            @include display(n);
+
+            @include phone {
+              height: 95%;
+            }
+
+            @include tablet {
+              height: 97%;
+            }
+
+            @include desktop {
+              height: 92%;
+            }
+          }
+        }
+      }
+
+      @include desktop(24%) {
+        margin: 0 0 30px;
+      }
+    }
+
+    @include desktop {
+      @include justify(sb);
+      @include alignItems(fs);
+    }
+  }
+
+  .copyrights {
+    border-top: 1px solid rgba(137, 137, 137, 0.08);
+    padding: 30px 0 20px;
+    @include display(f);
+    @include alignItems(c);
+    @include justify(c);
+    @include wrap(w);
+
+    p {
+      @include basis(100%);
+      font-size: 12px;
+      text-align: center;
+      color: $dark-gray;
+      margin-bottom: 10px;
+
+      span {
+        cursor: pointer;
+        font-weight: 700;
+        color: $blue
+      }
+
+      @include tablet(50%) {
+        text-align: left;
+
+        &:last-of-type {
+          text-align: right;
+        }
+      }
+    }
+
+    @include tablet {
+      @include justify(sb);
+    }
+  }
+}

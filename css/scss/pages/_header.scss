@@ -1,0 +1,382 @@
+// Start Style The Website Header
+header {
+  height: 100vh;
+  @include position(r);
+  overflow-x: hidden;
+
+  background: {
+    image: url(../images/dalmatian.png);
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+  }
+
+  .top-bar {
+    padding-top: 20px;
+    @include position(s);
+    @include transition;
+
+    &.fixed {
+      @include position(f) {
+        @include positionDir(5, -64px);
+      }
+
+      padding-top: 10px;
+      padding-bottom: 10px;
+      width: 100%;
+      background-color:$white;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    &.show {
+      top: 0
+    }
+
+    .top-bar-container {
+      @include display(f);
+      @include justify(sb);
+      @include alignItems(c);
+
+      .logo {
+        @include basis(75%);
+
+        a {
+          font: {
+            family: 'Courgette', cursive;
+            size: 35px;
+            weight: 700
+          }
+
+          color: $blue;
+        }
+
+        @include desktop(17%);
+      }
+
+      nav {
+        @include desktop(70%);
+
+        ul {
+          width: 250px;
+          height: 100vh;
+          padding: 70px 25px;
+          background-color: $white;
+          box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+
+          @include position(a) {
+            @include positionDir(2, 0, -260px);
+          }
+
+          @include transition;
+
+          &.show {
+            @include positionDir(2, 0, 0);
+          }
+
+          li {
+            padding-bottom: 25px;
+            font-size: 16px;
+
+            a {
+              color: $black;
+
+              &:hover {
+                color: $blue;
+              }
+
+              @include desktop {
+                position: relative;
+                @include display(b);
+
+                &:before {
+                  content: '';
+                  @include display(b);
+                  height: 6px;
+                  width: 100%;
+
+                  @include position(a) {
+                    @include positionDir(null, null, 0, 4px)
+                  }
+
+                  @include transition;
+                }
+
+                &.active,
+                &:hover {
+                  color: $black;
+                }
+
+                &.active:before {
+                  background-color: rgba(227, 80, 184, 0.4);
+                }
+
+                &:hover:before {
+                  background-color: rgba(227, 80, 184, 0.4);
+                }
+
+              }
+            }
+
+            @include desktop {
+              padding-bottom: 0;
+            }
+          }
+
+          @include desktop {
+            @include position(s);
+            @include display(f);
+            @include justify(sb);
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            box-shadow: none;
+            font-weight: 700;
+          }
+        }
+      }
+
+      .search {
+        cursor: pointer;
+
+        .search-two {
+          cursor: pointer;
+          @include display(n);
+        }
+
+        form {
+          @include display(n);
+
+          @include position(a) {
+            @include positionDir(null, 75px, null, null, 0);
+          }
+
+          width: 100%;
+          text-align: center;
+
+          &:before {
+            content: '';
+            @include display(b);
+
+            @include position(a) {
+              @include positionDir(null, -30%, 14%);
+            }
+
+            border-width: 9px 7px;
+            border-style: solid;
+            border-color: transparent transparent $blue transparent;
+
+            @include tablet {
+              right: 15%;
+            }
+
+            @include desktop {
+              right: 7%;
+            }
+
+            @include lgDesktop {
+              right: 13.5%;
+            }
+          }
+
+          input {
+            height: 60px;
+            width: 75%;
+            box-shadow: -1px 1px 20px rgba(0, 0, 0, 0.08);
+            padding: 12px 40px 12px 20px;
+            color: $dark-gray;
+            border: none;
+            border-top: 3px solid $blue;
+
+            font: {
+              weight: 500;
+              family: 'Poppins', sans-serif;
+              size: 14px;
+            }
+
+            @include tablet {
+              width: 350px;
+
+              @include position(r) {
+                @include positionDir(null, null, 15%)
+              }
+            }
+
+            @include desktop {
+              right: 10%;
+            }
+
+            @include lgDesktop {
+              right: 17%;
+            }
+          }
+
+          .search-three {
+            margin-left: -7%;
+            cursor: pointer;
+            color: $blue;
+
+            @include tablet {
+              @include position(r) {
+                @include positionDir(null, null, 15%)
+              }
+            }
+
+            @include desktop {
+              right: 6%;
+            }
+
+            @include lgDesktop {
+              right: 12%;
+            }
+          }
+
+          @include tablet {
+            text-align: end;
+          }
+        }
+
+        @include desktop(13%) {
+          text-align: end;
+        }
+      }
+
+      .mobile-btn {
+        cursor: pointer;
+        @include display(f);
+        @include direction(c);
+        @include justify(sb);
+
+        @include position(r) {
+          @include positionDir(3);
+        }
+
+        height: 16px;
+        width: 20px;
+
+        .line {
+          height: 2px;
+          width: 100%;
+          @include transition;
+          background-color: $black;
+
+          &:first-of-type {
+            width: 50%;
+          }
+
+          &:nth-of-type(2) {
+            height: 2.4px;
+          }
+
+          &:last-of-type {
+            width: 50%;
+            align-self: flex-end;
+            height: 2.4px;
+          }
+        }
+
+        @media (min-width: 992px) {
+          @include display(n);
+        }
+      }
+
+      .close-sign {
+        @include justify(c);
+
+        .line {
+          &:first-of-type {
+            transform: rotate(45deg) translate(2px, 1px);
+            width: 100%;
+          }
+
+          &:nth-of-type(2) {
+            transform: rotate(-45deg);
+            width: 100%;
+          }
+
+          &:last-of-type {
+            @include display(n);
+          }
+        }
+      }
+    }
+  }
+
+  .banner {
+    .banner-boxs {
+      height: calc(100vh - 64px);
+      @include display(f);
+      @include justify(sb);
+      @include alignItems(c);
+
+      .banner-box-text {
+        @include basis(90%);
+        margin: 0 auto;
+        text-align: center;
+
+        h1 {
+          line-height: 40px;
+
+          font: {
+            size: 34px;
+            weight: 600
+          }
+
+          @include phone {
+            font-size: 40px;
+            line-height: 45px;
+          }
+
+          @include tablet {
+            font-size: 44px;
+            line-height: 50px;
+          }
+
+          @include desktop {
+            font-size: 60px;
+            line-height: 60px;
+          }
+        }
+
+        p {
+          margin: 50px 0;
+          color: $dark-gray;
+          font-size: 17px;
+          line-height: 26px;
+        }
+
+        .buttons {
+          .white-button {
+            margin-left: 25px;
+
+            @include phone {
+              margin-left: 30px;
+            }
+          }
+
+        }
+
+        @include phone {
+          margin: 0;
+          text-align: left;
+        }
+
+        @include tablet(50%);
+        @include lgDesktop(45%);
+      }
+
+      .banner-box-image {
+        @include display(n);
+
+        @include tablet(50%) {
+          @include display(b);
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    background: none;
+  }
+}
+
+// Finish Style The Website Header

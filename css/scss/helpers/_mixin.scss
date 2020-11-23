@@ -1,0 +1,168 @@
+@mixin transition($p:all,$t:0.3s,$f:ease-in-out) {
+  transition: $p $t $f;
+}
+
+@function displaying($arg) {
+  $display: ('b':block,
+    'i':inline,
+    'ib':inline-block,
+    'f':flex,
+    'if':inline-flex,
+    'n':none);
+
+  @each $key,
+  $value in $display {
+    @if($key==$arg) {
+      @return $value;
+    }
+  }
+}
+@mixin display($x) {
+  display: displaying($x);
+}
+
+@function flexWrap($arg) {
+  $wrap: ('w':wrap,
+      'wr':wrap-reverse,
+      'nw':nowrap);
+
+  @each $key,
+  $value in $wrap {
+    @if($key==$arg) {
+      @return $value;
+    }
+  }
+}
+@mixin wrap($x) {
+  flex-wrap: flexWrap($x);
+}
+
+@function flexJustify($arg) {
+  $justify: ('sa':space-around,
+      'sb':space-between,
+      'se':space-evenly,
+      'c':center,
+      'fs':flex-start,
+      'fe':flex-end);
+
+  @each $key,
+  $value in $justify {
+    @if($key==$arg) {
+      @return $value;
+    }
+  }
+}
+@mixin justify($x) {
+  justify-content: flexJustify($x);
+}
+
+@function flexAlignContent($arg) {
+  $align: ('sa':space-around,
+      'sb':space-between,
+      's':stretch,
+      'c':center,
+      'fs':flex-start,
+      'fe':flex-end);
+
+  @each $key,
+  $value in $align {
+    @if($key==$arg) {
+      @return $value;
+    }
+  }
+}
+@mixin alignContent($x) {
+  align-content: flexAlignContent($x);
+}
+
+@function flexAlignItems($arg) {
+  $align: ('b':baseline,
+      's':stretch,
+      'c':center,
+      'fs':flex-start,
+      'fe':flex-end);
+
+  @each $key,
+  $value in $align {
+    @if($key==$arg) {
+      @return $value;
+    }
+  }
+}
+@mixin alignItems($x) {
+  align-items: flexAlignItems($x);
+}
+
+@function flexDirection($arg) {
+  $direction: ('r':row,
+      'rr':row-reverse,
+      'c':column,
+      'cr':column-reverse);
+
+  @each $key,
+  $value in $direction {
+    @if($key==$arg) {
+      @return $value;
+    }
+  }
+}
+@mixin direction($x) {
+  flex-direction: flexDirection($x);
+}
+
+@function positioning($arg) {
+  $position: ('a':absolute,
+      'f':fixed,
+      'r':relative,
+      's':static);
+
+  @each $key,
+  $value in $position {
+    @if($key==$arg) {
+      @return $value;
+    }
+  }
+}
+@mixin position($x) {
+  position: positioning($x);
+  @content;
+}
+@mixin positionDir($z:null,$t:null,$r:null,$d:null,$l:null) {
+  z-index: $z;
+  top: $t;
+  right: $r;
+  bottom: $d;
+  left: $l;
+}
+
+@mixin basis($value) {
+  flex-basis: $value;
+}
+
+@mixin phone($value:null) {
+  @media (min-width: 576px) {
+    @include basis($value);
+    @content;
+  }
+}
+
+@mixin tablet($value:null) {
+  @media (min-width: 768px) {
+    @include basis($value);
+    @content;
+  }
+}
+
+@mixin desktop($value:null) {
+  @media (min-width: 992px) {
+    @include basis($value);
+    @content;
+  }
+}
+
+@mixin lgDesktop($value:null) {
+  @media (min-width: 1200px) {
+    @include basis($value);
+    @content;
+  }
+}
